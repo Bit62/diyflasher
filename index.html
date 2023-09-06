@@ -1,72 +1,147 @@
 <!DOCTYPE html>
 <html>
-    <style>
-        .div-1 {
-            background-color: black;
-        }
-    </style>
-    <head>
-        <meta charset="utf-8" />
-        <title>NM DIY Flasher</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm@4.19.0/css/xterm.css">
-        <link
+<head>
+    <meta charset="utf-8"/>
+    <title>Nerdminer V2 Online DIY Flasher</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="Nerdminer V2 Online DIY Flasher"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm@4.19.0/css/xterm.css">
+    <link
             href="https://fonts.googleapis.com/css?family=Orbitron"
             rel="stylesheet"
-        />
-         <script src="https://cdn.jsdelivr.net/npm/xterm@4.19.0/lib/xterm.min.js"></script>
-         <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.js"></script>
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    </head>
-    <body>
-        <div class="div-1">
-              <div style="text-align: center;">
-                  <img src="media/fondoOpenSourceMM2.png" width="70%" alt="nerdminerBackground" />
-              </div>
+    />
+    <script src="https://cdn.jsdelivr.net/npm/xterm@4.19.0/lib/xterm.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+    html, body {
+        font-family: 'Orbitron', sans-serif;
+        background: black;
+    }
+    header {
+        background-color: black;
+        padding: 20px;
+        text-align: center;
+    }
+    .info-line {
+        padding: 20px;
+        text-align: center;
+        color: #ffffff;
+    }
+    select {
+        width: 90%;
+        padding: 24px 20px;
+        border: none;
+        border-radius: 4px;
+        background-color: #f1f1f1;
+        font-size: 18px;
+        font-weight: 500;
+    }
+    .btn-flash {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 24px 20px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+        width: 90%;
+        font-size: 20px;
+        font-weight: 500;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Orbitron', sans-serif;
+        color: #ffffff;
+    }
+    .bootloader-label {
+        color: #ffffff;
+        font-size: 20px;
+        font-weight: 500;
+    }
+    a {
+        color: #4CAF50;
+        font-size: 14px;
+    }
+    .bootloader-wrapper {
+        padding: 30px 20px;
+    }
+</style>
+<body>
+<header>
+    <div class="container">
+        <div style="text-align: center;">
+            <img src="media/branded-header-ssio.png" width="100%" alt="Nerdminer V2 Online Flasher"/>
         </div>
-        <div class="container">
-        <h1><p>Flash your board</p></h1>
+    </div>
+</header>
+<div class="container">
+    <div class="info-line">
+        <h1>Flash your board</h1>
         <h4>A Flasher utility for DIY miners</h4>
-        </div>
-        <div id="safariErr" style="text-align: center; display:none;"><p style="color:red">This tool is not supported on Safari browser!</p>
-        </div>
-        <div class="container" id="main">
-
-            <div id="program">
-                <label for="dyimodels" id="lbldiymodels">Firmware:</label>
-                <select name="diymodelsel" id="diymodelsel">
-                    <option value="nerdminer2_1.6.1_tdisplays3">NerdMinerv2 Latest Version T-DisplayS3</option>
-                    <option value="nerdminer2_1.6.0_tdisplays3">Nerdminerv2 1.6.0 for LILYGO T-Display-S3</option>
-                    <option value="nerdminer2_1.6.1_tdisplays3">Nerdminerv2 1.6.1 for LILYGO T-Display-S3</option>
-                    <option value="nerdminer2_1.6.1_esp32wroom">Nerdminerv2 1.6.1 for ESP32-WROOM</option>
-                    <option value="han_0.0.1_m5stack">HAN Solo 0.0.1 on M5Stack</option>
-                    <option value="han2_10.0.1_wt32-sc01">HAN Solo v2 0.0.1 (preview) for WT32-SC01</option>
-                    <option value="han2_0.0.1_wt32-sc01-plus">HAN Solo v2 0.0.1 (preview) for WT32-SC01 PLUS</option>
-                </select>
-                <input class="btn btn-info btn-sm" type="button" id="connectButton" value="Flash" />
-                <br>
-                <hr/>
+    </div>
+</div>
+<div id="safariErr" style="text-align: center; display:none;"><p style="color:red">This tool is not supported on Safari
+    browser!</p>
+</div>
+<div class="container" id="main">
+    <div style="text-align: center">
+        <h4>Select Firmware:</h4>
+    </div>
+    <div style="text-align: center;" id="program">
+        <select style="min-height: 20px;" name="diymodelsel" id="diymodelsel">
+            <option value="nerdminer2_1.6.1_tdisplays3">NerdMinerv2 Latest Version T-DisplayS3</option>
+            <option value="nerdminer2_1.6.0_tdisplays3">Nerdminerv2 1.6.0 for LILYGO T-Display-S3</option>
+            <option value="nerdminer2_1.6.1_tdisplays3">Nerdminerv2 1.6.1 for LILYGO T-Display-S3</option>
+            <option value="nerdminer2_1.6.1_esp32wroom">Nerdminerv2 1.6.1 for ESP32-WROOM</option>
+            <option value="han_0.0.1_m5stack">HAN Solo 0.0.1 on M5Stack</option>
+            <option value="han2_10.0.1_wt32-sc01">HAN Solo v2 0.0.1 (preview) for WT32-SC01</option>
+            <option value="han2_0.0.1_wt32-sc01-plus">HAN Solo v2 0.0.1 (preview) for WT32-SC01 PLUS</option>
+        </select>
+        <input class="btn-flash" type="button" id="connectButton" value="Flash"/>
+    </div>
+    <div class="bootloader-wrapper">
+        <label class="bootloader-label" for="bootloaderprogress" id="bootloaderprogresslbl" style="display:block;">Bootloader</label>
+        <progress id="bootloaderprogress" value="0" max="100" style="width: 100%; display:block;"></progress>
+        <label class="bootloader-label" for="partitiontableprogress" id="partitiontableprogresslbl" style="display:block;">Partition Table</label>
+        <progress id="partitiontableprogress" value="0" max="100" style="width: 100%; display:block"></progress>
+        <label class="bootloader-label" for="otaprogress" id="otaprogresslbl" style="display:none;">OTA initial data</label>
+        <progress id="otaprogress" value="0" max="100" style="width: 100%; display:none"></progress>
+        <label class="bootloader-label" for="firmwareprogress" id="firmwareprogresslbl" style="display:none;">Firmware</label>
+        <progress id="firmwareprogress" value="0" max="100" style="width: 100%; display:none"></progress>
+        <h3 id="success"></h3>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3 text-center">
+                <a href="https://satoshistore.io/blogs/artikel/nerdminer-project" target="_blank">Nerdminer Project</a>
             </div>
-            <label for="bootloaderprogress" id="bootloaderprogresslbl" style="display:none;" >Bootloader</label>
-            <progress id="bootloaderprogress" value="0" max="100" style="width: 100%; display:none"></progress>
-            <label for="partitiontableprogress" id="partitiontableprogresslbl" style="display:none;">Partition Table</label>
-            <progress id="partitiontableprogress" value="0" max="100" style="width: 100%; display:none"></progress>
-            <label for="otaprogress" id="otaprogresslbl" style="display:none;">OTA initial data</label>
-            <progress id="otaprogress" value="0" max="100" style="width: 100%; display:none"></progress>
-            <label for="firmwareprogress" id="firmwareprogresslbl" style="display:none;">Firmware</label>
-            <progress id="firmwareprogress" value="0" max="100" style="width: 100%; display:none"></progress>
-            <h3 id="success"></h3>
-        <script src="index.js" type="module"></script>
-        <script>
-            // Safari 3.0+ "[object HTMLElementConstructor]"
-            var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && window['safari'].pushNotification));
+            <div class="col-sm-3 text-center">
+                <a href="https://satoshistore.io/blogs/artikel/nerdminer-v2-setup-and-usage-information" target="_blank">Setup and usage information</a>
+            </div>
+            <div class="col-sm-3 text-center">
+                <a href="https://satoshistore.io/products/nerdminer-v2" target="_blank">Get a Nerdminer</a>
+            </div>
+            <div class="col-sm-3 text-center">
+                <a href="https://satoshistore.io/">satoshistore.io</a>
+            </div>
+        </div>
+    </div>
+    <br>
+    <script src="index.js" type="module"></script>
+    <script>
+      // Safari 3.0+ "[object HTMLElementConstructor]"
+      var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) {
+        return p.toString() === "[object SafariRemoteNotification]";
+      })(!window['safari'] || (typeof safari !== 'undefined' && window['safari'].pushNotification));
 
-            if(isSafari)
-            {
-               document.getElementById("safariErr").style.display = "inline";
-               document.getElementById("main").style.display = "none";
-            }
-        </script>
-    </body>
+      if (isSafari) {
+        document.getElementById("safariErr").style.display = "inline";
+        document.getElementById("main").style.display = "none";
+      }
+    </script>
+</body>
 </html>
