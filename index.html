@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8"/>
     <title>Nerdminer V2 Online DIY Flasher</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content="Nerdminer V2 Online DIY Flasher"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm@4.19.0/css/xterm.css">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta content="Nerdminer V2 Online DIY Flasher" name="description"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/xterm@4.19.0/css/xterm.css" rel="stylesheet">
     <link
             href="https://fonts.googleapis.com/css?family=Orbitron"
             rel="stylesheet"
@@ -21,16 +21,19 @@
         font-family: 'Orbitron', sans-serif;
         background: black;
     }
+
     header {
         background-color: black;
         padding: 20px;
         text-align: center;
     }
+
     .info-line {
         padding: 20px;
         text-align: center;
         color: #ffffff;
     }
+
     select {
         width: 90%;
         padding: 24px 20px;
@@ -40,6 +43,7 @@
         font-size: 18px;
         font-weight: 500;
     }
+
     .btn-flash {
         background-color: #4CAF50;
         border: none;
@@ -52,19 +56,30 @@
         font-size: 20px;
         font-weight: 500;
     }
+
     h1, h2, h3, h4, h5, h6 {
         font-family: 'Orbitron', sans-serif;
         color: #ffffff;
     }
+
     .bootloader-label {
         color: #ffffff;
         font-size: 20px;
         font-weight: 500;
     }
+
+    #bootloaderprogress::-webkit-progress-value {
+        background-color: #4CAF50;
+    }
+    #bootloaderprogress::-moz-progress-bar {
+        background-color: #4CAF50;
+    }
+
     a {
         color: #4CAF50;
         font-size: 14px;
     }
+
     .bootloader-wrapper {
         padding: 30px 20px;
     }
@@ -73,7 +88,7 @@
 <header>
     <div class="container">
         <div style="text-align: center;">
-            <img src="media/branded-header-ssio.png" width="100%" alt="Nerdminer V2 Online Flasher"/>
+            <img alt="Nerdminer V2 Online Flasher" src="media/branded-header-ssio.png" width="100%"/>
         </div>
     </div>
 </header>
@@ -90,8 +105,9 @@
     <div style="text-align: center">
         <h4>Select Firmware:</h4>
     </div>
-    <div style="text-align: center;" id="program">
-        <select style="min-height: 20px;" name="diymodelsel" id="diymodelsel">
+    <div id="program" style="text-align: center;">
+        <label for="dyimodels" id="lbldiymodels"></label>
+        <select id="diymodelsel" name="diymodelsel" style="min-height: 20px;">
             <option value="nerdminer2_1.6.1_tdisplays3">NerdMinerv2 Latest Version T-DisplayS3</option>
             <option value="nerdminer2_1.6.0_tdisplays3">Nerdminerv2 1.6.0 for LILYGO T-Display-S3</option>
             <option value="nerdminer2_1.6.1_tdisplays3">Nerdminerv2 1.6.1 for LILYGO T-Display-S3</option>
@@ -100,17 +116,20 @@
             <option value="han2_10.0.1_wt32-sc01">HAN Solo v2 0.0.1 (preview) for WT32-SC01</option>
             <option value="han2_0.0.1_wt32-sc01-plus">HAN Solo v2 0.0.1 (preview) for WT32-SC01 PLUS</option>
         </select>
-        <input class="btn-flash" type="button" id="connectButton" value="Flash"/>
+        <input class="btn-flash" id="connectButton" type="button" value="Flash"/>
     </div>
     <div class="bootloader-wrapper">
-        <label class="bootloader-label" for="bootloaderprogress" id="bootloaderprogresslbl" style="display:block;">Bootloader</label>
-        <progress id="bootloaderprogress" value="0" max="100" style="width: 100%; display:block;"></progress>
-        <label class="bootloader-label" for="partitiontableprogress" id="partitiontableprogresslbl" style="display:block;">Partition Table</label>
-        <progress id="partitiontableprogress" value="0" max="100" style="width: 100%; display:block"></progress>
-        <label class="bootloader-label" for="otaprogress" id="otaprogresslbl" style="display:none;">OTA initial data</label>
-        <progress id="otaprogress" value="0" max="100" style="width: 100%; display:none"></progress>
-        <label class="bootloader-label" for="firmwareprogress" id="firmwareprogresslbl" style="display:none;">Firmware</label>
-        <progress id="firmwareprogress" value="0" max="100" style="width: 100%; display:none"></progress>
+        <label class="bootloader-label" for="bootloaderprogress" id="bootloaderprogresslbl" style="display:none;">Bootloader</label>
+        <progress id="bootloaderprogress" max="100" style="width: 100%; display:none; background-color: #4CAF50 !important;" value="0"></progress>
+        <label class="bootloader-label" for="partitiontableprogress" id="partitiontableprogresslbl"
+               style="display:none;">Partition Table</label>
+        <progress id="partitiontableprogress" max="100" style="width: 100%; display:none; background-color: #4CAF50 !important;" value="0"></progress>
+        <label class="bootloader-label" for="otaprogress" id="otaprogresslbl" style="display:none;">OTA initial
+            data</label>
+        <progress id="otaprogress" max="100" style="width: 100%; display:none; background-color: #4CAF50 !important;" value="0"></progress>
+        <label class="bootloader-label" for="firmwareprogress" id="firmwareprogresslbl"
+               style="display:none;">Firmware</label>
+        <progress id="firmwareprogress" max="100" style="width: 100%; display:none; background-color: #4CAF50 !important;" value="0"></progress>
         <h3 id="success"></h3>
     </div>
     <hr>
@@ -120,7 +139,8 @@
                 <a href="https://satoshistore.io/blogs/artikel/nerdminer-project" target="_blank">Nerdminer Project</a>
             </div>
             <div class="col-sm-3 text-center">
-                <a href="https://satoshistore.io/blogs/artikel/nerdminer-v2-setup-and-usage-information" target="_blank">Setup and usage information</a>
+                <a href="https://satoshistore.io/blogs/artikel/nerdminer-v2-setup-and-usage-information"
+                   target="_blank">Setup and usage information</a>
             </div>
             <div class="col-sm-3 text-center">
                 <a href="https://satoshistore.io/products/nerdminer-v2" target="_blank">Get a Nerdminer</a>
@@ -143,5 +163,6 @@
         document.getElementById("main").style.display = "none";
       }
     </script>
+</div>
 </body>
 </html>
