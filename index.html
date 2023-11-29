@@ -105,18 +105,24 @@
     <div style="text-align: center">
         <h4>Select Firmware:</h4>
     </div>
-    <div id="program" style="text-align: center;">
+    <div id="program">
         <label for="dyimodels" id="lbldiymodels"></label>
-        <select id="diymodelsel" name="diymodelsel" style="min-height: 20px;">
-            <option value="nerdminer2_1.6.1_tdisplays3">NerdMinerv2 Latest Version T-DisplayS3</option>
-            <option value="nerdminer2_1.6.0_tdisplays3">Nerdminerv2 1.6.0 for LILYGO T-Display-S3</option>
-            <option value="nerdminer2_1.6.1_tdisplays3">Nerdminerv2 1.6.1 for LILYGO T-Display-S3</option>
-            <option value="nerdminer2_1.6.1_esp32wroom">Nerdminerv2 1.6.1 for ESP32-WROOM</option>
+        <select name="diymodelsel" id="diymodelsel" style="min-height: 20px;">
+            <option value="nerdminer2_1.6.3_tdisplays3">NerdMinerv2 1.6.3 original board T-Display S3</option>
+            <option value="nerdminer2_1.6.3_s3Dongle">NMV2 1.6.3 on LILYGO S3 Dongle</option>
+            <option value="nerdminer2_1.6.3_tdiplay_S3_Amoled">NMV2 1.6.3 on LILYGO T-Display-AMOLED</option>
+            <option value="nerdminer2_1.6.3_esp32wroom">NMV2 1.6.3 on ESP32-WROOM</option>
+            <option value="nerdminer2_1.6.3_T_QT">NMV2 1.6.3 on LILYGO T-QT</option>
+            <option value="nerdminer2_1.6.3_tdisplayv1">NMV2 1.6.3 on TDisplay v1.14</option>
+            <option value="nerdminer2_1.6.3_ESP32-2432S028R">NMV2 1.6.3 on ESP32-2432S028R</option>
+            <option value="nerdminer2_1.6.3_M5-StampS3">NMV2 1.6.3 on M5-StampS3</option>
             <option value="han_0.0.1_m5stack">HAN Solo 0.0.1 on M5Stack</option>
             <option value="han2_10.0.1_wt32-sc01">HAN Solo v2 0.0.1 (preview) for WT32-SC01</option>
             <option value="han2_0.0.1_wt32-sc01-plus">HAN Solo v2 0.0.1 (preview) for WT32-SC01 PLUS</option>
         </select>
-        <input class="btn-flash" id="connectButton" type="button" value="Flash"/>
+        <input class="btn btn-info btn-sm" type="button" id="connectButton" value="Flash" />
+        <br>
+        <hr/>
     </div>
     <div class="bootloader-wrapper">
         <label class="bootloader-label" for="bootloaderprogress" id="bootloaderprogresslbl" style="display:none;">Bootloader</label>
