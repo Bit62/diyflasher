@@ -73,21 +73,63 @@ connectButton.onclick = async () => {
       {address: '0xE000', fileName: 'ota_data_initial.bin', progressBar: otaprogressBar},
       {address: '0x10000', fileName: 'firmware.bin', progressBar: firmwareprogressBar},
     ];
-  } else if (["nerdminer2_1.6.0_tdisplays3", "nerdminer2_1.6.1_tdisplays3"].includes(diymodelsel.value)) { // nerd
+  } else if (["nerdminer2_1.6.3_tdisplays3"].includes(diymodelsel.value)) { // nerd
     addressesAndFiles = [
       {address: '0x0000', fileName: '0x0000_bootloader.bin', progressBar: btprogressBar},
       {address: '0x8000', fileName: '0x8000_partitions.bin', progressBar: ptprogressBar},
       {address: '0xE000', fileName: '0xe000_boot_app0.bin', progressBar: otaprogressBar},
       {address: '0x10000', fileName: '0x10000_firmware.bin', progressBar: firmwareprogressBar},
    ];
-  } else if (["nerdminer2_1.6.1_esp32wroom"].includes(diymodelsel.value)) { // nerd WROOM
+  } else if (["nerdminer2_1.6.3_esp32wroom"].includes(diymodelsel.value)) { // nerd WROOM
     addressesAndFiles = [
       {address: '0x1000', fileName: '0x1000_bootloader.bin', progressBar: btprogressBar},
       {address: '0x8000', fileName: '0x8000_partitions.bin', progressBar: ptprogressBar},
       {address: '0xE000', fileName: '0xe000_boot_app0.bin', progressBar: otaprogressBar},
       {address: '0x10000', fileName: '0x10000_firmware.bin', progressBar: firmwareprogressBar},
    ];
-  }
+   } else if (["nerdminer2_1.6.3_tdiplay_S3_Amoled"].includes(diymodelsel.value)) { // nerd WROOM
+    addressesAndFiles = [
+      {address: '0x0000', fileName: '0x0000_bootloader.bin', progressBar: btprogressBar},
+      {address: '0x8000', fileName: '0x8000_partitions.bin', progressBar: ptprogressBar},
+      {address: '0xE000', fileName: '0xe000_boot_app0.bin', progressBar: otaprogressBar},
+      {address: '0x10000', fileName: '0x10000_firmware.bin', progressBar: firmwareprogressBar},
+   ];
+      } else if (["nerdminer2_1.6.3_T_QT"].includes(diymodelsel.value)) { // nerd WROOM
+    addressesAndFiles = [
+      {address: '0x0000', fileName: '0x0000_bootloader.bin', progressBar: btprogressBar},
+      {address: '0x8000', fileName: '0x8000_partitions.bin', progressBar: ptprogressBar},
+      {address: '0xE000', fileName: '0xe000_boot_app0.bin', progressBar: otaprogressBar},
+      {address: '0x10000', fileName: '0x10000_firmware.bin', progressBar: firmwareprogressBar},
+   ];
+    } else if (["nerdminer2_1.6.3_tdisplayv1"].includes(diymodelsel.value)) { // nerd WROOM
+    addressesAndFiles = [
+      {address: '0x1000', fileName: '0x1000_bootloader.bin', progressBar: btprogressBar},
+      {address: '0x8000', fileName: '0x8000_partitions.bin', progressBar: ptprogressBar},
+      {address: '0xE000', fileName: '0xe000_boot_app0.bin', progressBar: otaprogressBar},
+      {address: '0x10000', fileName: '0x10000_firmware.bin', progressBar: firmwareprogressBar},
+   ];
+    } else if (["nerdminer2_1.6.3_s3Dongle"].includes(diymodelsel.value)) { // nerd WROOM
+    addressesAndFiles = [
+      {address: '0x0000', fileName: '0x0000_bootloader.bin', progressBar: btprogressBar},
+      {address: '0x8000', fileName: '0x8000_partitions.bin', progressBar: ptprogressBar},
+      {address: '0xE000', fileName: '0xe000_boot_app0.bin', progressBar: otaprogressBar},
+      {address: '0x10000', fileName: '0x10000_firmware.bin', progressBar: firmwareprogressBar},
+   ];
+   } else if (["nerdminer2_1.6.3_ESP32-2432S028R"].includes(diymodelsel.value)) { // nerd WROOM
+    addressesAndFiles = [
+      {address: '0x1000', fileName: '0x1000_bootloader.bin', progressBar: btprogressBar},
+      {address: '0x8000', fileName: '0x8000_partitions.bin', progressBar: ptprogressBar},
+      {address: '0xE000', fileName: '0xe000_boot_app0.bin', progressBar: otaprogressBar},
+      {address: '0x10000', fileName: '0x10000_firmware.bin', progressBar: firmwareprogressBar},
+   ];
+  } else if (["nerdminer2_1.6.3_M5-StampS3"].includes(diymodelsel.value)) { // nerd WROOM
+    addressesAndFiles = [
+      {address: '0x0000', fileName: '0x0000_bootloader.bin', progressBar: btprogressBar},
+      {address: '0x8000', fileName: '0x8000_partitions.bin', progressBar: ptprogressBar},
+      {address: '0xE000', fileName: '0xe000_boot_app0.bin', progressBar: otaprogressBar},
+      {address: '0x10000', fileName: '0x10000_firmware.bin', progressBar: firmwareprogressBar},
+   ];
+   }
 
 
   let fileArray = [];
